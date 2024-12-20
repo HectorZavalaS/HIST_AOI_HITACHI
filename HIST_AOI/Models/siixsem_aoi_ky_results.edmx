@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="siixsem_aoi_koh_youngModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="existsSerialGiken" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serial" Type="nvarchar" Mode="In" />
+          <Parameter Name="dateaoi" Type="nvarchar" Mode="In" />
+          <Parameter Name="program" Type="nvarchar" Mode="In" />
+          <Parameter Name="side" Type="nvarchar" Mode="In" />
+          <Parameter Name="neo_result" Type="nvarchar" Mode="In" />
+          <Parameter Name="neo_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="neo_user" Type="nvarchar" Mode="In" />
+          <Parameter Name="neo_date" Type="nvarchar" Mode="In" />
+          <Parameter Name="aoi_result" Type="nvarchar" Mode="In" />
+          <Parameter Name="aoi_defect" Type="nvarchar" Mode="In" />
+          <Parameter Name="aoi_line" Type="nvarchar" Mode="In" />
+          <Parameter Name="aoi_def_ref" Type="nvarchar" Mode="In" />
+          <Parameter Name="aoi_defect_name" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="getAOIPending" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAOIPendingHitachi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="getAOIPendingTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="insertGikenResult" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serial_number" Type="nvarchar" Mode="In" />
+          <Parameter Name="program" Type="nvarchar" Mode="In" />
+          <Parameter Name="side" Type="nvarchar" Mode="In" />
+          <Parameter Name="neo_result" Type="nvarchar" Mode="In" />
+          <Parameter Name="neo_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="neo_user" Type="nvarchar" Mode="In" />
+          <Parameter Name="neo_date" Type="nvarchar" Mode="In" />
+          <Parameter Name="aoi_result" Type="nvarchar" Mode="In" />
+          <Parameter Name="aoi_defect" Type="nvarchar" Mode="In" />
+          <Parameter Name="aoi_line" Type="nvarchar" Mode="In" />
+          <Parameter Name="aoi_defect_name" Type="nvarchar" Mode="In" />
+          <Parameter Name="aoi_date" Type="nvarchar" Mode="In" />
+          <Parameter Name="new_result" Type="nvarchar" Mode="In" />
+          <Parameter Name="new_date" Type="nvarchar" Mode="In" />
+          <Parameter Name="aoi_def_ref" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="insertSerial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idItem" Type="int" Mode="In" />
+          <Parameter Name="serial" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="insertSerialHitachi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="barcode" Type="nvarchar" Mode="In" />
+          <Parameter Name="before" Type="int" Mode="In" />
+          <Parameter Name="after" Type="int" Mode="In" />
+          <Parameter Name="checksum" Type="int" Mode="In" />
+        </Function>
+        <Function Name="setAOIPending" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serial" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="setAOIPendingN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="serial" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="siixsem_aoi_koh_youngModelStoreContainer" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="siixsem_aoi_koh_youngModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="siixsem_aoi_koh_youngEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="getAOIPending" ReturnType="Collection(siixsem_aoi_koh_youngModel.getAOIPending_Result)" />
+          <FunctionImport Name="setAOIPending" ReturnType="Collection(Int32)">
+          <Parameter Name="serial" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertSerial" ReturnType="Collection(siixsem_aoi_koh_youngModel.insertSerial_Result)">
+            <Parameter Name="idItem" Mode="In" Type="Int32" />
+            <Parameter Name="serial" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="setAOIPendingN" ReturnType="Collection(Int32)">
+          <Parameter Name="serial" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getAOIPendingTest" ReturnType="Collection(siixsem_aoi_koh_youngModel.getAOIPendingTest_Result)" />
+          <FunctionImport Name="getAOIPendingHitachi" ReturnType="Collection(siixsem_aoi_koh_youngModel.getAOIPendingHitachi_Result)" />
+          <FunctionImport Name="insertSerialHitachi" ReturnType="Collection(Int32)">
+            <Parameter Name="barcode" Mode="In" Type="String" />
+            <Parameter Name="before" Mode="In" Type="Int32" />
+            <Parameter Name="after" Mode="In" Type="Int32" />
+            <Parameter Name="checksum" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="existsSerialGiken" ReturnType="Collection(siixsem_aoi_koh_youngModel.existsSerialGiken_Result)">
+            <Parameter Name="serial" Mode="In" Type="String" />
+            <Parameter Name="dateaoi" Mode="In" Type="String" />
+            <Parameter Name="program" Mode="In" Type="String" />
+            <Parameter Name="side" Mode="In" Type="String" />
+            <Parameter Name="neo_result" Mode="In" Type="String" />
+            <Parameter Name="neo_name" Mode="In" Type="String" />
+            <Parameter Name="neo_user" Mode="In" Type="String" />
+            <Parameter Name="neo_date" Mode="In" Type="String" />
+            <Parameter Name="aoi_result" Mode="In" Type="String" />
+            <Parameter Name="aoi_defect" Mode="In" Type="String" />
+            <Parameter Name="aoi_line" Mode="In" Type="String" />
+            <Parameter Name="aoi_def_ref" Mode="In" Type="String" />
+            <Parameter Name="aoi_defect_name" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="insertGikenResult">
+            <Parameter Name="serial_number" Mode="In" Type="String" />
+            <Parameter Name="program" Mode="In" Type="String" />
+            <Parameter Name="side" Mode="In" Type="String" />
+            <Parameter Name="neo_result" Mode="In" Type="String" />
+            <Parameter Name="neo_name" Mode="In" Type="String" />
+            <Parameter Name="neo_user" Mode="In" Type="String" />
+            <Parameter Name="neo_date" Mode="In" Type="String" />
+            <Parameter Name="aoi_result" Mode="In" Type="String" />
+            <Parameter Name="aoi_defect" Mode="In" Type="String" />
+            <Parameter Name="aoi_line" Mode="In" Type="String" />
+            <Parameter Name="aoi_defect_name" Mode="In" Type="String" />
+            <Parameter Name="aoi_date" Mode="In" Type="String" />
+            <Parameter Name="new_result" Mode="In" Type="String" />
+            <Parameter Name="new_date" Mode="In" Type="String" />
+            <Parameter Name="aoi_def_ref" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="getAOIPending_Result">
+          <Property Type="String" Name="serial" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="estatus" Nullable="false" MaxLength="24" />
+          <Property Type="Int32" Name="linea" Nullable="true" />
+          <Property Type="Int32" Name="id_aoi" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="insertSerial_Result">
+          <Property Type="Int32" Name="RESULT" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="getAOIPendingTest_Result">
+          <Property Type="Int32" Name="id_aoi" Nullable="false" />
+          <Property Type="String" Name="serial" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="estatus" Nullable="false" MaxLength="24" />
+          <Property Type="Int32" Name="linea" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getAOIPendingHitachi_Result">
+          <Property Type="Int32" Name="PCBResultBefore" Nullable="true" />
+          <Property Type="Int32" Name="PCBResultAfter" Nullable="true" />
+          <Property Type="String" Name="BarCode" Nullable="true" MaxLength="256" />
+          <Property Type="Int32" Name="Checksum" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="existsSerialGiken_Result">
+          <Property Type="Int32" Name="RESULT" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="siixsem_aoi_koh_youngModelStoreContainer" CdmEntityContainer="siixsem_aoi_koh_youngEntities" >
+          <FunctionImportMapping FunctionImportName="getAOIPending" FunctionName="siixsem_aoi_koh_youngModel.Store.getAOIPending">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="siixsem_aoi_koh_youngModel.getAOIPending_Result">
+                <ScalarProperty Name="serial" ColumnName="serial" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="linea" ColumnName="linea" />
+                <ScalarProperty Name="id_aoi" ColumnName="id_aoi" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="setAOIPending" FunctionName="siixsem_aoi_koh_youngModel.Store.setAOIPending" />
+          <FunctionImportMapping FunctionImportName="insertSerial" FunctionName="siixsem_aoi_koh_youngModel.Store.insertSerial" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="siixsem_aoi_koh_youngModel.insertSerial_Result">
+                <ScalarProperty Name="RESULT" ColumnName="RESULT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="setAOIPendingN" FunctionName="siixsem_aoi_koh_youngModel.Store.setAOIPendingN" />
+          <FunctionImportMapping FunctionImportName="getAOIPendingTest" FunctionName="siixsem_aoi_koh_youngModel.Store.getAOIPendingTest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="siixsem_aoi_koh_youngModel.getAOIPendingTest_Result">
+                <ScalarProperty Name="id_aoi" ColumnName="id_aoi" />
+                <ScalarProperty Name="serial" ColumnName="serial" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="linea" ColumnName="linea" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getAOIPendingHitachi" FunctionName="siixsem_aoi_koh_youngModel.Store.getAOIPendingHitachi">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="siixsem_aoi_koh_youngModel.getAOIPendingHitachi_Result">
+                <ScalarProperty Name="PCBResultBefore" ColumnName="PCBResultBefore" />
+                <ScalarProperty Name="PCBResultAfter" ColumnName="PCBResultAfter" />
+                <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+                <ScalarProperty Name="Checksum" ColumnName="Checksum" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="insertSerialHitachi" FunctionName="siixsem_aoi_koh_youngModel.Store.insertSerialHitachi" />
+          <FunctionImportMapping FunctionImportName="existsSerialGiken" FunctionName="siixsem_aoi_koh_youngModel.Store.existsSerialGiken" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="siixsem_aoi_koh_youngModel.existsSerialGiken_Result">
+                <ScalarProperty Name="RESULT" ColumnName="RESULT" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="insertGikenResult" FunctionName="siixsem_aoi_koh_youngModel.Store.insertGikenResult" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

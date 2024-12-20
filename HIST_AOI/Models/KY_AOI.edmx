@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KY_AOIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TB_AOIPCB">
+          <Key>
+            <PropertyRef Name="PCBGUID" />
+          </Key>
+          <Property Name="PCBGUID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PCBID" Type="bigint" />
+          <Property Name="MachineID" Type="nvarchar" MaxLength="256" />
+          <Property Name="MachineIP" Type="nvarchar" MaxLength="256" />
+          <Property Name="JobGUID" Type="uniqueidentifier" />
+          <Property Name="JobFileIDLocal" Type="nvarchar" MaxLength="256" />
+          <Property Name="JobFileIDShare" Type="nvarchar(max)" />
+          <Property Name="JobFileShareDir" Type="nvarchar" MaxLength="256" />
+          <Property Name="Lot" Type="nvarchar" MaxLength="256" />
+          <Property Name="StartDateTime" Type="datetime" />
+          <Property Name="EndDateTime" Type="datetime" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="256" />
+          <Property Name="PCBResultBefore" Type="int" />
+          <Property Name="PCBResultAfter" Type="int" />
+          <Property Name="PCBRepair" Type="int" />
+          <Property Name="BarCode" Type="nvarchar" MaxLength="256" />
+          <Property Name="ALLBarCode" Type="nvarchar(max)" />
+          <Property Name="PCBTotalComp" Type="int" />
+          <Property Name="PCBTotalInsp" Type="int" />
+          <Property Name="ArrayCnt" Type="int" />
+          <Property Name="SaveDone" Type="int" />
+          <Property Name="Checksum" Type="int" />
+          <Property Name="TB" Type="nvarchar" MaxLength="1" />
+          <Property Name="ResultDBName" Type="nvarchar" MaxLength="256" />
+          <Property Name="ImageDBName" Type="nvarchar" MaxLength="256" />
+          <Property Name="FieldVersion" Type="float" />
+          <Property Name="PCBComment" Type="nvarchar(max)" />
+          <Property Name="PCBModel" Type="nvarchar" MaxLength="256" />
+          <Property Name="LotType" Type="int" />
+          <Property Name="SaveMode" Type="int" />
+          <Property Name="RepairStartDateTime" Type="datetime" />
+          <Property Name="RepairEndDateTime" Type="datetime" />
+          <Property Name="ReviewStartDateTime" Type="datetime" />
+          <Property Name="ReviewEndDateTime" Type="datetime" />
+          <Property Name="RepairUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="ReviewUserID" Type="nvarchar" MaxLength="128" />
+          <Property Name="PCBResultRepair" Type="int" />
+          <Property Name="PCBIndexByModel" Type="int" />
+          <Property Name="Lane" Type="int" />
+          <Property Name="MesInterface" Type="nvarchar" MaxLength="256" />
+          <Property Name="TeachingArrayCnt" Type="int" />
+          <Property Name="MesUse" Type="int" />
+          <Property Name="ScrapCode" Type="int" />
+          <Property Name="PCBResultVersion" Type="int" />
+          <Property Name="ExistLinkData" Type="int" />
+          <Property Name="LinkResult" Type="int" />
+          <Property Name="TeachingCompCnt" Type="int" />
+          <Property Name="TagSet" Type="nvarchar" MaxLength="100" />
+          <Property Name="InspError" Type="int" />
+          <Property Name="DispReviewUpperNGCnt" Type="int" />
+          <Property Name="FlipperKey" Type="nvarchar" MaxLength="256" />
+          <Property Name="IsCheckTheChecker" Type="int" />
+          <Property Name="CTCMasterPCB" Type="nvarchar" MaxLength="256" />
+          <Property Name="CTCSubPCBDisplayedName" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityContainer Name="KY_AOIModelStoreContainer">
+          <EntitySet Name="TB_AOIPCB" EntityType="Self.TB_AOIPCB" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KY_AOIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TB_AOIPCB">
+          <Key>
+            <PropertyRef Name="PCBGUID" />
+          </Key>
+          <Property Name="PCBGUID" Type="Guid" Nullable="false" />
+          <Property Name="PCBID" Type="Int64" />
+          <Property Name="MachineID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="MachineIP" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="JobGUID" Type="Guid" />
+          <Property Name="JobFileIDLocal" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="JobFileIDShare" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="JobFileShareDir" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Lot" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="StartDateTime" Type="DateTime" Precision="3" />
+          <Property Name="EndDateTime" Type="DateTime" Precision="3" />
+          <Property Name="UserID" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="PCBResultBefore" Type="Int32" />
+          <Property Name="PCBResultAfter" Type="Int32" />
+          <Property Name="PCBRepair" Type="Int32" />
+          <Property Name="BarCode" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ALLBarCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PCBTotalComp" Type="Int32" />
+          <Property Name="PCBTotalInsp" Type="Int32" />
+          <Property Name="ArrayCnt" Type="Int32" />
+          <Property Name="SaveDone" Type="Int32" />
+          <Property Name="Checksum" Type="Int32" />
+          <Property Name="TB" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="ResultDBName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ImageDBName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="FieldVersion" Type="Double" />
+          <Property Name="PCBComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PCBModel" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="LotType" Type="Int32" />
+          <Property Name="SaveMode" Type="Int32" />
+          <Property Name="RepairStartDateTime" Type="DateTime" Precision="3" />
+          <Property Name="RepairEndDateTime" Type="DateTime" Precision="3" />
+          <Property Name="ReviewStartDateTime" Type="DateTime" Precision="3" />
+          <Property Name="ReviewEndDateTime" Type="DateTime" Precision="3" />
+          <Property Name="RepairUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="ReviewUserID" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PCBResultRepair" Type="Int32" />
+          <Property Name="PCBIndexByModel" Type="Int32" />
+          <Property Name="Lane" Type="Int32" />
+          <Property Name="MesInterface" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="TeachingArrayCnt" Type="Int32" />
+          <Property Name="MesUse" Type="Int32" />
+          <Property Name="ScrapCode" Type="Int32" />
+          <Property Name="PCBResultVersion" Type="Int32" />
+          <Property Name="ExistLinkData" Type="Int32" />
+          <Property Name="LinkResult" Type="Int32" />
+          <Property Name="TeachingCompCnt" Type="Int32" />
+          <Property Name="TagSet" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InspError" Type="Int32" />
+          <Property Name="DispReviewUpperNGCnt" Type="Int32" />
+          <Property Name="FlipperKey" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="IsCheckTheChecker" Type="Int32" />
+          <Property Name="CTCMasterPCB" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="CTCSubPCBDisplayedName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="KY_AOIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TB_AOIPCB" EntityType="Self.TB_AOIPCB" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KY_AOIModelStoreContainer" CdmEntityContainer="KY_AOIEntities">
+          <EntitySetMapping Name="TB_AOIPCB">
+            <EntityTypeMapping TypeName="KY_AOIModel.TB_AOIPCB">
+              <MappingFragment StoreEntitySet="TB_AOIPCB">
+                <ScalarProperty Name="PCBGUID" ColumnName="PCBGUID" />
+                <ScalarProperty Name="PCBID" ColumnName="PCBID" />
+                <ScalarProperty Name="MachineID" ColumnName="MachineID" />
+                <ScalarProperty Name="MachineIP" ColumnName="MachineIP" />
+                <ScalarProperty Name="JobGUID" ColumnName="JobGUID" />
+                <ScalarProperty Name="JobFileIDLocal" ColumnName="JobFileIDLocal" />
+                <ScalarProperty Name="JobFileIDShare" ColumnName="JobFileIDShare" />
+                <ScalarProperty Name="JobFileShareDir" ColumnName="JobFileShareDir" />
+                <ScalarProperty Name="Lot" ColumnName="Lot" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="PCBResultBefore" ColumnName="PCBResultBefore" />
+                <ScalarProperty Name="PCBResultAfter" ColumnName="PCBResultAfter" />
+                <ScalarProperty Name="PCBRepair" ColumnName="PCBRepair" />
+                <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+                <ScalarProperty Name="ALLBarCode" ColumnName="ALLBarCode" />
+                <ScalarProperty Name="PCBTotalComp" ColumnName="PCBTotalComp" />
+                <ScalarProperty Name="PCBTotalInsp" ColumnName="PCBTotalInsp" />
+                <ScalarProperty Name="ArrayCnt" ColumnName="ArrayCnt" />
+                <ScalarProperty Name="SaveDone" ColumnName="SaveDone" />
+                <ScalarProperty Name="Checksum" ColumnName="Checksum" />
+                <ScalarProperty Name="TB" ColumnName="TB" />
+                <ScalarProperty Name="ResultDBName" ColumnName="ResultDBName" />
+                <ScalarProperty Name="ImageDBName" ColumnName="ImageDBName" />
+                <ScalarProperty Name="FieldVersion" ColumnName="FieldVersion" />
+                <ScalarProperty Name="PCBComment" ColumnName="PCBComment" />
+                <ScalarProperty Name="PCBModel" ColumnName="PCBModel" />
+                <ScalarProperty Name="LotType" ColumnName="LotType" />
+                <ScalarProperty Name="SaveMode" ColumnName="SaveMode" />
+                <ScalarProperty Name="RepairStartDateTime" ColumnName="RepairStartDateTime" />
+                <ScalarProperty Name="RepairEndDateTime" ColumnName="RepairEndDateTime" />
+                <ScalarProperty Name="ReviewStartDateTime" ColumnName="ReviewStartDateTime" />
+                <ScalarProperty Name="ReviewEndDateTime" ColumnName="ReviewEndDateTime" />
+                <ScalarProperty Name="RepairUserID" ColumnName="RepairUserID" />
+                <ScalarProperty Name="ReviewUserID" ColumnName="ReviewUserID" />
+                <ScalarProperty Name="PCBResultRepair" ColumnName="PCBResultRepair" />
+                <ScalarProperty Name="PCBIndexByModel" ColumnName="PCBIndexByModel" />
+                <ScalarProperty Name="Lane" ColumnName="Lane" />
+                <ScalarProperty Name="MesInterface" ColumnName="MesInterface" />
+                <ScalarProperty Name="TeachingArrayCnt" ColumnName="TeachingArrayCnt" />
+                <ScalarProperty Name="MesUse" ColumnName="MesUse" />
+                <ScalarProperty Name="ScrapCode" ColumnName="ScrapCode" />
+                <ScalarProperty Name="PCBResultVersion" ColumnName="PCBResultVersion" />
+                <ScalarProperty Name="ExistLinkData" ColumnName="ExistLinkData" />
+                <ScalarProperty Name="LinkResult" ColumnName="LinkResult" />
+                <ScalarProperty Name="TeachingCompCnt" ColumnName="TeachingCompCnt" />
+                <ScalarProperty Name="TagSet" ColumnName="TagSet" />
+                <ScalarProperty Name="InspError" ColumnName="InspError" />
+                <ScalarProperty Name="DispReviewUpperNGCnt" ColumnName="DispReviewUpperNGCnt" />
+                <ScalarProperty Name="FlipperKey" ColumnName="FlipperKey" />
+                <ScalarProperty Name="IsCheckTheChecker" ColumnName="IsCheckTheChecker" />
+                <ScalarProperty Name="CTCMasterPCB" ColumnName="CTCMasterPCB" />
+                <ScalarProperty Name="CTCSubPCBDisplayedName" ColumnName="CTCSubPCBDisplayedName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
